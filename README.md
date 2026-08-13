@@ -2,4 +2,4 @@
 Student Name:
 Student ID:
 Class:
-End
+End game.
