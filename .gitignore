@@ -6,3 +6,6 @@ build/
 *.tmp
 __pycache__/
 .env
+node_modules/
+client/node_modules/
+client/dist/
