@@ -1,7 +1,7 @@
 services:
   backend:
     build:
-      context: ./mern-demo
+      context: .
       dockerfile: server/Dockerfile
     container_name: mernbackend
     ports:
@@ -12,7 +12,7 @@ services:
 
   frontend:
     build:
-      context: ./mern-demo/client
+      context: ./client
     container_name: mernfrontend
     ports:
       - "3000:3000"
