@@ -1,0 +1,14 @@
+services:
+  backend:
+    image: hayes123/mern-backend:1.0
+    ports:
+      - "5000:5000"
+    environment:
+      MONGODB_URI: "mongodb+srv://cloudlab_user:a12345t@cluster0.dkxnlmv.mongodb.net/cloud_lab?retryWrites=true&w=majority&appName=Cluster0"
+
+  frontend:
+    image: hayes123/mern-frontend:2.0
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend

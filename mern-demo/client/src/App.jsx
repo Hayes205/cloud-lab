@@ -175,7 +175,7 @@ function App() {
         margin: "auto",
       }}
     >
-      <h1>Quản lý sinh viên</h1>
+      <h1>Quản lý sinh viên - Version 2.0</h1>
 
       {/* =========================
           FORM
