@@ -2,19 +2,26 @@ const express = require("express");
 const cors = require("cors");
 const dotenv = require("dotenv");
 const mongoose = require("mongoose");
-const path = require("path");
+dotenv.config();
 
 const Student = require("./student.model");
 
-// Đọc file .env ở thư mục gốc mern-demo
-dotenv.config({
-  path: path.join(__dirname, "..", ".env")
-});
+
 
 const app = express();
-
+// Log HTTP request
+app.use((req, res, next) => {
+  console.log(`[HTTP] ${req.method} ${req.originalUrl}`);
+  next();
+});
 // Middleware
-app.use(cors());
+const CLIENT_URL = process.env.CLIENT_URL;
+
+app.use(
+  cors({
+    origin: CLIENT_URL || "*"
+  })
+);
 app.use(express.json());
 
 // Kiểm tra biến môi trường

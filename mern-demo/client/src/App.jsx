@@ -1,20 +1,15 @@
 import { useEffect, useState } from "react";
 
-const API_URL = "http://localhost:5000/api";
-
-function App() {
+const API_URL = `${import.meta.env.VITE_API_URL}/api`;
+  function App() {
   const [students, setStudents] = useState([]);
 
   const [studentId, setStudentId] = useState("");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
 
-  // Dùng để biết đang thêm hay đang sửa
   const [editingId, setEditingId] = useState(null);
 
-  // =========================
-  // Câu 47 - GET students
-  // =========================
   const loadStudents = async () => {
     try {
       const response = await fetch(`${API_URL}/students`);
@@ -34,10 +29,7 @@ function App() {
     loadStudents();
   }, []);
 
-  // =========================
-  // Câu 75 - POST student
-  // Câu 77 - PUT student
-  // =========================
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -50,9 +42,7 @@ function App() {
       let response;
 
       if (editingId) {
-        // =========================
-        // Câu 77 - PUT
-        // =========================
+      
         response = await fetch(`${API_URL}/students/${editingId}`, {
           method: "PUT",
           headers: {
@@ -65,9 +55,7 @@ function App() {
           }),
         });
       } else {
-        // =========================
-        // Câu 75 - POST
-        // =========================
+       
         response = await fetch(`${API_URL}/students`, {
           method: "POST",
           headers: {
