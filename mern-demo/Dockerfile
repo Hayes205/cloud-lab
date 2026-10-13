@@ -6,8 +6,9 @@ COPY package*.json ./
 
 RUN npm install
 
-COPY server ./server
+COPY server/ ./server/
 
+WORKDIR /app/server
 EXPOSE 5000
 
-CMD ["npm", "start"]
+CMD ["npm", "server.js"]

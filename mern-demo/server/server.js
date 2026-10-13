@@ -182,6 +182,14 @@ app.delete("/api/students/:id", async (req, res) => {
 
 const PORT = process.env.PORT || 5000;
 
+app.get("/health", (req, res) => {
+  res.status(200).json({
+    status: "UP",
+    timestamp: new Date(),
+    uptime: process.uptime(),
+  });
+});
+
 app.listen(PORT, "0.0.0.0", () => {
-  console.log(`Backend đang chạy tại port ${PORT}`);
+  console.log(`[VERSION 1.2] Backend đang chạy tại port ${PORT}`);
 });
